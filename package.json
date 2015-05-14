@@ -1,0 +1,29 @@
+{
+  "name": "iggins",
+  "version": "0.0.0",
+  "description": "Irken plugin for listening for key combinations",
+  "author": "Blaine Bublitz <blaine@iceddev.com> (http://iceddev.com)",
+  "contributors": [],
+  "repository": "iceddev/iggins",
+  "license": "MIT",
+  "engines": {
+    "node": ">= 0.10"
+  },
+  "main": "index.js",
+  "files": [
+    "LICENSE",
+    "index.js"
+  ],
+  "scripts": {
+    "test": "zuul test/*.js --local --open"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "keywords": [
+    "irken",
+    "key combination",
+    "keypress",
+    "keys",
+    "plugin"
+  ]
+}

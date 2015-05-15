@@ -14,7 +14,16 @@ const codes = {
   '<meta>': 'META',
   '<space>': 'SPACE'
 }
-
+  const keytrans = {
+    16: 'SHIFT',
+    17: 'CTRL',
+    18: 'ALT',
+    91: 'META',
+    92: 'META',
+    93: 'META',
+    9: 'TAB',
+    27: 'ESC'
+  }
 
 function Iggins(app, opts, done){
 
@@ -180,7 +189,6 @@ function Iggins(app, opts, done){
       opts = {};
     }
 
-    console.log('combo: ', keyCombo);
     if (combo[keyCombo]){
       description = combo[keyCombo].description;
     }
@@ -189,7 +197,6 @@ function Iggins(app, opts, done){
       description: opts.description || description,
       action: handler
     }
-    console.log(combo);
   }
 
   // remove registered combos and events when components unmount
@@ -197,35 +204,41 @@ function Iggins(app, opts, done){
     delete combo[keyCombo];
   }
 
-  var keytrans = {
-    16: 'SHIFT',
-    17: 'CTRL',
-    18: 'ALT'
-  }
+
 
   let kp = [];
+
+  function decodeChar(key, charList){
+    if (typeof key === 'string'){
+      return key.toUpperCase();
+    }
+
+    if(charList[key]){
+      return charList[key];
+    }
+
+    return String.fromCharCode(ch).toUpperCase();
+  }
+
+  function joinKeys(ch, evt, collector){
+    if(evt.type === 'keydown' && collector.indexOf(ch) === -1){
+      collector.push(ch);
+      return;
+    }
+
+    collector.pop(ch);
+  }
+
   function match(e){
-    let chUpper;
-    let chChar;
     let chKey = e.key || e.keyCode; 
-    if (keytrans[chKey]){
-      chUpper = keytrans[chKey];
-    }
-    else {
-      chChar = String.fromCharCode(chKey);
-      chUpper = chChar.toUpperCase();
-    }
-    if(e.type = 'keydown' && (kp.indexOf(chUpper) === -1)){
-      kp.push(chUpper);
-    }
-    else {
-      kp.pop(chUpper);
-    }
 
-    const joinedKP = kp.join('_');
+    decodeChar(chKey, keytrans);
+    joinKeys(ch, e, kp);
 
-    if (combo[joinedKP]){
-      combo[joinedKP].action();
+    const joinedKeypress = kp.join('_');
+
+    if (combo[joinedKeypress]){
+      combo[joinedKeypress].action();
     }
   }
 

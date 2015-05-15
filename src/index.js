@@ -189,30 +189,28 @@ function Iggins(app, opts, done){
   }
 
   function match(e){
-    let kp, chName = e.key || e.keyCode || e.charCode;
-    let modifier = {
-      ALT: e.altKey,
-      CTRL: e.ctrlKey,
-      SHIFT: e.shiftKey
-    }
+    let kp = '';
+    let chName = e.key || e.keyCode || e.charCode; 
 
-    if(modifier.ALT){
+    if(e.altKey){
       kp.concat('ALT_');
-    }
-    if(modifier.CTRL){
+    } 
+    if(e.ctrlKey){
       kp.concat('CTRL_');
     }
-    if(modifier.SHIFT){
+    if(e.shiftKey){
       kp.concat('SHIFT_');
     }
 
     kp.concat(normalizeChar(chName));
-    combo[kp].action(e);
+    if (combo[kp]){
+      combo[kp].action();
+    }
   }
 
   function normalizeChar(charCode){
     if(typeof charCode === 'string'){
-      return charCode;
+      return charCode.toUpperCase();
     }
     let output = vkey(charCode);
     return codes[output] || output;
@@ -224,7 +222,9 @@ function Iggins(app, opts, done){
     match: match
   });
 
-  window.addEventListener('keyCapture', this.match);
+  if (window){
+    window.addEventListener('keyCapture', this.match);
+  }
 
   done();
 };

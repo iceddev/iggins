@@ -234,31 +234,28 @@
 	  }
 
 	  function match(e) {
-	    var kp = undefined,
-	        chName = e.key || e.keyCode || e.charCode;
-	    var modifier = {
-	      ALT: e.altKey,
-	      CTRL: e.ctrlKey,
-	      SHIFT: e.shiftKey
-	    };
+	    var kp = '';
+	    var chName = e.key || e.keyCode || e.charCode;
 
-	    if (modifier.ALT) {
+	    if (e.altKey) {
 	      kp.concat('ALT_');
 	    }
-	    if (modifier.CTRL) {
+	    if (e.ctrlKey) {
 	      kp.concat('CTRL_');
 	    }
-	    if (modifier.SHIFT) {
+	    if (e.shiftKey) {
 	      kp.concat('SHIFT_');
 	    }
 
 	    kp.concat(normalizeChar(chName));
-	    combo[kp].action(e);
+	    if (combo[kp]) {
+	      combo[kp].action();
+	    }
 	  }
 
 	  function normalizeChar(charCode) {
 	    if (typeof charCode === 'string') {
-	      return charCode;
+	      return charCode.toUpperCase();
 	    }
 	    var output = vkey(charCode);
 	    return codes[output] || output;
@@ -270,7 +267,9 @@
 	    match: match
 	  });
 
-	  window.addEventListener('keyCapture', this.match);
+	  if (window) {
+	    window.addEventListener('keyCapture', this.match);
+	  }
 
 	  done();
 	};

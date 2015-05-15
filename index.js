@@ -27,6 +27,10 @@ function Iggins(app, opts, done){
       description: 'Copy selected text to the clipboard',
       action: ''
     },
+    //CTRL_E: {
+      //description: 'Copy selected text to the clipboard',
+      //action: ''
+    //},
     CTRL_F: {
       description: 'Find or replace text',
       action: ''
@@ -170,17 +174,22 @@ function Iggins(app, opts, done){
     let keyCombo = name;
     let opts = opt;
     let handler = fn;
+    let description = '';
     if(typeof opts === 'function'){
       handler = opts;
       opts = {};
     }
 
-    let description = combo[keyCombo].description;
+    console.log('combo: ', keyCombo);
+    if (combo[keyCombo]){
+      description = combo[keyCombo].description;
+    }
 
     combo[keyCombo] = {
-      description: opts.description || description || '',
+      description: opts.description || description,
       action: handler
     }
+    console.log(combo);
   }
 
   // remove registered combos and events when components unmount
@@ -188,32 +197,36 @@ function Iggins(app, opts, done){
     delete combo[keyCombo];
   }
 
-  function match(e){
-    let kp = '';
-    let chName = e.key || e.keyCode || e.charCode; 
-
-    if(e.altKey){
-      kp.concat('ALT_');
-    } 
-    if(e.ctrlKey){
-      kp.concat('CTRL_');
-    }
-    if(e.shiftKey){
-      kp.concat('SHIFT_');
-    }
-
-    kp.concat(normalizeChar(chName));
-    if (combo[kp]){
-      combo[kp].action();
-    }
+  var keytrans = {
+    16: 'SHIFT',
+    17: 'CTRL',
+    18: 'ALT'
   }
 
-  function normalizeChar(charCode){
-    if(typeof charCode === 'string'){
-      return charCode.toUpperCase();
+  let kp = [];
+  function match(e){
+    let chUpper;
+    let chChar;
+    let chKey = e.key || e.keyCode; 
+    if (keytrans[chKey]){
+      chUpper = keytrans[chKey];
     }
-    let output = vkey(charCode);
-    return codes[output] || output;
+    else {
+      chChar = String.fromCharCode(chKey);
+      chUpper = chChar.toUpperCase();
+    }
+    if(e.type = 'keydown' && (kp.indexOf(chUpper) === -1)){
+      kp.push(chUpper);
+    }
+    else {
+      kp.pop(chUpper);
+    }
+
+    const joinedKP = kp.join('_');
+
+    if (combo[joinedKP]){
+      combo[joinedKP].action();
+    }
   }
 
   app.expose('keypress', {
@@ -223,7 +236,8 @@ function Iggins(app, opts, done){
   });
 
   if (window){
-    window.addEventListener('keyCapture', this.match);
+    window.addEventListener('keydown', match);
+    window.addEventListener('keyup', match);
   }
 
   done();

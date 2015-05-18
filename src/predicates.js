@@ -72,8 +72,6 @@ module.exports = {
   CTRL_EQUALS: function({ ctrlKey, keyCode }){
     return ((ctrlKey === true || metaKey === true) && keyCode === kc('='));
   },
-  // File Management
-
   CTRL_O: function({ ctrlKey, keyCode }){
     return ((ctrlKey === true || metaKey === true) && keyCode === kc('o'));
   },
@@ -98,8 +96,6 @@ module.exports = {
       shiftKey === true &&
       keyCode === kc('tab'));
   },
-
-  // Code
   CTRL_I: function({ ctrlKey, keyCode }){
     return ((ctrlKey === true || metaKey === true) && keyCode === kc('i'));
   },

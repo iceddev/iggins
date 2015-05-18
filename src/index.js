@@ -4,7 +4,7 @@ const _ = require('lodash');
 
 const predicates = require('./predicates');
 
-function Iggins(app, opts, done){
+function iggins(app, opts, done){
 
   const handlers = [];
 
@@ -27,13 +27,15 @@ function Iggins(app, opts, done){
     });
   }
 
+  _.assign(keypress, predicates);
+
   app.expose('keypress', keypress);
 
   if (window){
-    window.addEventListener('keydown', match(evt));
+    window.addEventListener('keydown', match);
   }
 
   done();
 };
 
-module.exports = _.assign(Iggins, predicates);
+module.exports = iggins;

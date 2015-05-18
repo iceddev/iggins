@@ -12,13 +12,21 @@
   "main": "index.js",
   "files": [
     "LICENSE",
-    "index.js"
+    "index.js",
+    "predicates.js"
   ],
   "scripts": {
-    "test": "zuul test/*.js --local --open"
+    "test": "zuul test/ --local --open",
+    "prepublish": "gulp"
   },
-  "dependencies": {},
-  "devDependencies": {},
+  "dependencies": {
+    "keycode": "^2.1.0",
+    "lodash": "^3.8.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-babel": "^5.1.0"
+  },
   "keywords": [
     "irken",
     "key combination",

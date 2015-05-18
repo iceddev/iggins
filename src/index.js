@@ -36,6 +36,4 @@ function Iggins(app, opts, done){
   done();
 };
 
-module.exports = Iggins;
-
-app.keypress(app.keypress.CTRL_A, handler);
+module.exports = _.assign(Iggins, predicates);

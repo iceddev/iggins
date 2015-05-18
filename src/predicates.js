@@ -3,25 +3,25 @@
 const kc = require('keycode');
 
 module.exports = {
-  CTRL_A: function({ ctrlKey, keyCode }){
+  CTRL_A: function({ ctrlKey, metaKey, keyCode }){
     return ((ctrlKey === true || metaKey === true) && keyCode === kc('a'));
   },
-  CTRL_C: function({ ctrlKey, keyCode }){
+  CTRL_C: function({ ctrlKey, metaKey, keyCode }){
     return ((ctrlKey === true || metaKey === true) && keyCode === kc('c'));
   },
-  CTRL_F: function({ ctrlKey, keyCode }){
+  CTRL_F: function({ ctrlKey, metaKey, keyCode }){
     return ((ctrlKey === true || metaKey === true) && keyCode === kc('f'));
   },
-  CTRL_V: function({ ctrlKey, keyCode }){
+  CTRL_V: function({ ctrlKey, metaKey, keyCode }){
     return ((ctrlKey === true || metaKey === true) && keyCode === kc('v'));
   },
-  CTRL_X: function({ ctrlKey, keyCode }){
+  CTRL_X: function({ ctrlKey, metaKey, keyCode }){
     return ((ctrlKey === true || metaKey === true) && keyCode === kc('x'));
   },
-  CTRL_Z: function({ ctrlKey, keyCode }){
+  CTRL_Z: function({ ctrlKey, metaKey, keyCode }){
     return ((ctrlKey === true || metaKey === true) && keyCode === kc('z'));
   },
-  CTRL_SHIFT_Z: function({ ctrlKey, keyCode }){
+  CTRL_SHIFT_Z: function({ ctrlKey, metaKey, keyCode }){
     return ((ctrlKey === true || metaKey === true) && shiftKey === true && keyCode === kc('z'));
   },
   TAB: function({ ctrlKey, shiftKey, altKey, metaKey, keyCode }){
@@ -60,19 +60,19 @@ module.exports = {
   CTRL_END: function({ ctrlKey, keyCode }){
     return (ctrlKey === true && keyCode === kc('end'));
   },
-  CTRL_UP: function({ ctrlKey, keyCode }){
+  CTRL_UP: function({ ctrlKey, metaKey, keyCode }){
     return ((ctrlKey === true || metaKey === true) && keyCode === kc('up'));
   },
-  CTRL_DOWN: function({ ctrlKey, keyCode }){
+  CTRL_DOWN: function({ ctrlKey, metaKey, keyCode }){
     return ((ctrlKey === true || metaKey === true) && keyCode === kc('down'));
   },
-  CTRL_MINUS: function({ ctrlKey, keyCode }){
+  CTRL_MINUS: function({ ctrlKey, metaKey, keyCode }){
     return ((ctrlKey === true || metaKey === true) && keyCode === kc('-'));
   },
-  CTRL_EQUALS: function({ ctrlKey, keyCode }){
+  CTRL_EQUALS: function({ ctrlKey, metaKey, keyCode }){
     return ((ctrlKey === true || metaKey === true) && keyCode === kc('='));
   },
-  CTRL_O: function({ ctrlKey, keyCode }){
+  CTRL_O: function({ ctrlKey, metaKey, keyCode }){
     return ((ctrlKey === true || metaKey === true) && keyCode === kc('o'));
   },
   BACSPACE: function({ ctrlKey, shiftKey, altKey, metaKey, keyCode }){
@@ -82,21 +82,21 @@ module.exports = {
       metaKey === false &&
       keyCode === kc('backspace'));
   },
-  CTRL_S: function({ ctrlKey, keyCode }){
+  CTRL_S: function({ ctrlKey, metaKey, keyCode }){
     return ((ctrlKey === true || metaKey === true) && keyCode === kc('s'));
   },
-  CTRL_P: function({ ctrlKey, keyCode }){
+  CTRL_P: function({ ctrlKey, metaKey, keyCode }){
     return ((ctrlKey === true || metaKey === true) && keyCode === kc('p'));
   },
-  CTRL_TAB: function({ ctrlKey, keyCode }){
+  CTRL_TAB: function({ ctrlKey, metaKey, keyCode }){
     return ((ctrlKey === true || metaKey === true) && keyCode === kc('tab'));
   },
-  CTRL_SHIFT_TAB: function({ ctrlKey, shiftKey, keyCode }){
+  CTRL_SHIFT_TAB: function({ ctrlKey, metaKey, shiftKey, keyCode }){
     return ((ctrlKey === true || metaKey === true) &&
       shiftKey === true &&
       keyCode === kc('tab'));
   },
-  CTRL_I: function({ ctrlKey, keyCode }){
+  CTRL_I: function({ ctrlKey, metaKey, keyCode }){
     return ((ctrlKey === true || metaKey === true) && keyCode === kc('i'));
   },
   F6: function({ ctrlKey, shiftKey, altKey, metaKey, keyCode }){
@@ -106,7 +106,7 @@ module.exports = {
       metaKey === false &&
       keyCode === kc('f6'));
   },
-  CTRL_T: function({ ctrlKey, keyCode }){
+  CTRL_T: function({ ctrlKey, metaKey, keyCode }){
     return ((ctrlKey === true || metaKey === true) && keyCode === kc('t'));
   },
   F7: function({ ctrlKey, shiftKey, altKey, metaKey, keyCode }){
@@ -116,7 +116,7 @@ module.exports = {
       metaKey === false &&
       keyCode === kc('f7'));
   },
-  CTRL_M: function({ ctrlKey, keyCode }){
+  CTRL_M: function({ ctrlKey, metaKey, keyCode }){
     return ((ctrlKey === true || metaKey === true) && keyCode === kc('m'));
   },
   F8: function({ ctrlKey, shiftKey, altKey, metaKey, keyCode }){

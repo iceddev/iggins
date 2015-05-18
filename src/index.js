@@ -2,24 +2,24 @@
 
 const _ = require('lodash');
 
+const predicates = require('./predicates');
+
 function Iggins(app, opts, done){
 
   const handlers = [];
 
-  // add keyCombos from the application
-  function register(predicate, handler){
-    handlers.push({
+  function keypress(predicate, handler){
+    let keyAction = {
       predicate: predicate,
       handler: handler
-    });
+    };
+
+    handlers.push(keyAction);
+
+    return _.partial(_.remove, handlers, keyAction);
   }
 
-  // remove registered combos and events when components unmount
-  function removeCombo(predicate){
-    handlers = _.reject(handlers, {'predicate', predicate});
-  }
-
-  function match(e){
+  function match(evt){
     _.forEach(handlers, function(handlerObject){
       if(handlerObject.predicate(evt)){
         handlerObject.handler(evt);

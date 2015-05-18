@@ -15,7 +15,7 @@
     "index.js"
   ],
   "scripts": {
-    "test": "zuul test/*.js --local --open"
+    "test": "zuul test/ --local --open"
   },
   "dependencies": {
     "lodash": "^3.8.0"

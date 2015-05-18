@@ -36,6 +36,6 @@ function iggins(app, opts, done){
   }
 
   done();
-};
+}
 
 module.exports = iggins;

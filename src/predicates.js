@@ -24,7 +24,7 @@ module.exports = {
   CTRL_W: function({ ctrlKey, metaKey, keyCode }){
     return ((ctrlKey === true || metaKey === true) && keyCode === kc('w'));
   },
-  CTRL_SHIFT_Z: function({ ctrlKey, metaKey, keyCode }){
+  CTRL_SHIFT_Z: function({ ctrlKey, metaKey, keyCode, shiftKey }){
     return ((ctrlKey === true || metaKey === true) && shiftKey === true && keyCode === kc('z'));
   },
   TAB: function({ ctrlKey, shiftKey, altKey, metaKey, keyCode }){

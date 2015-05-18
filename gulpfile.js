@@ -9,4 +9,4 @@ function build(){
     .pipe(gulp.dest('./'));
 }
 
-gulp.task("default", build);
+gulp.task('default', build);

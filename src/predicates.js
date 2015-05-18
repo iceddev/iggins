@@ -21,6 +21,9 @@ module.exports = {
   CTRL_Z: function({ ctrlKey, metaKey, keyCode }){
     return ((ctrlKey === true || metaKey === true) && keyCode === kc('z'));
   },
+  CTRL_W: function({ ctrlKey, metaKey, keyCode }){
+    return ((ctrlKey === true || metaKey === true) && keyCode === kc('w'));
+  },
   CTRL_SHIFT_Z: function({ ctrlKey, metaKey, keyCode }){
     return ((ctrlKey === true || metaKey === true) && shiftKey === true && keyCode === kc('z'));
   },
@@ -33,6 +36,12 @@ module.exports = {
   },
   SHIFT_TAB: function({ shiftKey, keyCode }){
     return (shiftKey === true && keyCode === kc('tab'));
+  },
+  ALT_SHIFT_TAB: function({ altKey, shiftKey, keyCode }){
+    return (altKey === true && shiftKey === true && keyCode === kc('tab'));
+  },
+  ALT_TAB: function({ altKey, keyCode }){
+    return (altKey === true && keyCode === kc('tab'));
   },
   F3: function({ ctrlKey, shiftKey, altKey, metaKey, keyCode }){
     return (ctrlKey === false &&

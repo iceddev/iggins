@@ -27,11 +27,7 @@ function Iggins(app, opts, done){
     });
   }
 
-  app.expose('keypress', {
-    register: register,
-    unRegister: removeCombo,
-    match: match
-  });
+  app.expose('keypress', keypress);
 
   if (window){
     window.addEventListener('keydown', match(evt));

@@ -11,7 +11,15 @@ const exclude = [
 
 function Iggins(app, opts, done){
 
-  let combo = {};
+  let combo = {
+	// only here for testing purposes.
+	CTRL_A: {
+		description: 'A test function',
+		action: function(){
+			console.log("Keystroke: 'CTRL_A'");
+		}
+	}
+  };
 
   // add keyCombos from the application
   function register(name, opt, fn){

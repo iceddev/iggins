@@ -17,7 +17,9 @@
   "scripts": {
     "test": "zuul test/*.js --local --open"
   },
-  "dependencies": {},
+  "dependencies": {
+    "lodash": "^3.8.0"
+  },
   "devDependencies": {},
   "keywords": [
     "irken",

@@ -36,46 +36,34 @@ function Iggins(app, opts, done){
 
   // remove registered combos and events when components unmount
   function removeCombo(keyCombo){
-    delete combo[keyCombo];
-  }
-
-
-
-  let kp = [];
-
-  function decodeChar(key, charList){
-    if (typeof key === 'string'){
-      return key.toUpperCase();
-    }
-
-    if(charList[key]){
-      return charList[key];
-    }
-
-    return String.fromCharCode(ch).toUpperCase();
-  }
-
-  function joinKeys(ch, evt, collector){
-    if(evt.type === 'keydown' && collector.indexOf(ch) === -1){
-      collector.push(ch);
-      return;
-    }
-
-    collector.pop(ch);
-  }
+	    delete combo[keyCombo];
+	  }
 
   function match(e){
-    let chKey = e.key || e.keyCode; 
 
-    decodeChar(chKey, keytrans);
-    joinKeys(ch, e, kp);
-
-    const joinedKeypress = kp.join('_');
-
-    if (combo[joinedKeypress]){
-      combo[joinedKeypress].action();
-    }
+    let keystroke = getKeystroke(e);
+    callAction(keystroke, combo);
   }
+
+  function getKeystroke(kbEvent){
+		if (exclude.indexOf(kbEvent.keyCode) !== -1){
+			return;
+		}
+
+		let alt = kbEvent.altKey ? 'ALT_' : ''
+		let meta = kbEvent.metaKey ? 'META_' : ''
+		let ctrl = kbEvent.ctrlKey ? 'CTRL_' : ''
+		let shift = kbEvent.shiftKey ? 'SHIFT_' : ''
+		let ch = kbEvent.key ? kbEvent.key.toUpperCase() : keycode(kbEvent.keyCode).toUpperCase()
+
+		return `${alt}${meta}${ctrl}${shift}${ch}`
+	}
+
+	function callAction(keystroke, directory){
+		if(directory[keystroke]){
+			directory[keystroke].action();
+		}
+	}
 
   app.expose('keypress', {
     register: register,

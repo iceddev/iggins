@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "iggins": "git://github.com/iceddev/iggins",
+    "keycode": "^2.1.0",
     "vkey": "^1.0.0"
   },
   "devDependencies": {

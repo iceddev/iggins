@@ -12,7 +12,8 @@
   "main": "index.js",
   "files": [
     "LICENSE",
-    "index.js"
+    "index.js",
+    "predicates.js"
   ],
   "scripts": {
     "test": "zuul test/ --local --open",

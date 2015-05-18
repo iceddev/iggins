@@ -31,7 +31,7 @@ function iggins(app, opts, done){
 
   app.expose('keypress', keypress);
 
-  if (window){
+  if (typeof window !== 'undefined'){
     window.addEventListener('keydown', match);
   }
 

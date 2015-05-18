@@ -73,7 +73,6 @@ function Iggins(app, opts, done){
 
   if (window){
     window.addEventListener('keydown', match);
-    window.addEventListener('keyup', match);
   }
 
   done();

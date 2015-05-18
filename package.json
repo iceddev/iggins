@@ -15,7 +15,8 @@
     "index.js"
   ],
   "scripts": {
-    "test": "zuul test/ --local --open"
+    "test": "zuul test/ --local --open",
+    "prepublish": "gulp"
   },
   "dependencies": {
     "lodash": "^3.8.0"

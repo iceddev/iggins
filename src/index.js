@@ -19,9 +19,8 @@ const codes = {
 function Iggins(app, opts, done){
 
   let combo = {
-    CTRL_A: {
-      description: 'Select all text in current source code',
-      action: ''
+    CTRL_A: function({ ctrlKey, keyCode }){
+      return (ctrlKey === true && keyCode === 12);
     },
     CTRL_C: {
       description: 'Copy selected text to the clipboard',
@@ -165,22 +164,28 @@ function Iggins(app, opts, done){
     }
   };
 
+  const handlers = [];
+
   // add keyCombos from the application
-  function register(name, opt, fn){
-    let keyCombo = name;
-    let opts = opt;
-    let handler = fn;
-    if(typeof opts === 'function'){
-      handler = opts;
-      opts = {};
-    }
+  function register(predicate, handler){
+    handlers.push({
+      predicate: predicate,
+      handler: handler
+    });
+    // let keyCombo = name;
+    // let opts = opt;
+    // let handler = fn;
+    // if(typeof opts === 'function'){
+    //   handler = opts;
+    //   opts = {};
+    // }
 
-    let description = combo[keyCombo].description;
+    // let description = combo[keyCombo].description;
 
-    combo[keyCombo] = {
-      description: opts.description || description || '',
-      action: handler
-    }
+    // combo[keyCombo] = {
+    //   description: opts.description || description || '',
+    //   action: handler
+    // }
   }
 
   // remove registered combos and events when components unmount
@@ -223,7 +228,13 @@ function Iggins(app, opts, done){
   });
 
   if (window){
-    window.addEventListener('keyCapture', this.match);
+    window.addEventListener('keydown', function(evt){
+      _.forEach(handlers, function(handlerObject){
+        if(handlerObject.predicate(evt)){
+          handlerObject.handler(evt);
+        }
+      })
+    });
   }
 
   done();

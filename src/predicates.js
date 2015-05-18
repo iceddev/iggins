@@ -41,7 +41,7 @@ module.exports = {
       metaKey === false &&
       keyCode === kc('f3'));
   },
-  Shift_F3: function({ shiftKey, keyCode }){
+  SHIFT_F3: function({ shiftKey, keyCode }){
     return (shiftKey === true && keyCode === kc('f3'));
   },
   F4: function({ ctrlKey, shiftKey, altKey, metaKey, keyCode }){

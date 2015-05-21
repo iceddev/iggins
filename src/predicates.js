@@ -21,11 +21,17 @@ module.exports = {
   CTRL_Z: function({ ctrlKey, metaKey, keyCode }){
     return ((ctrlKey === true || metaKey === true) && keyCode === kc('z'));
   },
+  CTRL_G: function({ ctrlKey, metaKey, keyCode }){
+    return ((ctrlKey === true || metaKey === true) && keyCode === kc('g'));
+  },
   CTRL_W: function({ ctrlKey, metaKey, keyCode }){
     return ((ctrlKey === true || metaKey === true) && keyCode === kc('w'));
   },
   CTRL_SHIFT_Z: function({ ctrlKey, metaKey, keyCode, shiftKey }){
     return ((ctrlKey === true || metaKey === true) && shiftKey === true && keyCode === kc('z'));
+  },
+  CTRL_SHIFT_G: function({ ctrlKey, metaKey, keyCode, shiftKey }){
+    return ((ctrlKey === true || metaKey === true) && shiftKey === true && keyCode === kc('g'));
   },
   TAB: function({ ctrlKey, shiftKey, altKey, metaKey, keyCode }){
     return (ctrlKey === false &&
@@ -42,6 +48,12 @@ module.exports = {
   },
   ALT_TAB: function({ altKey, keyCode }){
     return (altKey === true && keyCode === kc('tab'));
+  },
+  ALT_CTRL_F: function({ altKey, ctrlKey, metaKey, keyCode }){
+    return ((ctrlKey === true || metaKey === true) && altKey === true && keyCode === kc('f'));
+  },
+  ALT_CTRL_G: function({ altKey, ctrlKey, metaKey, keyCode }){
+    return ((ctrlKey === true || metaKey === true) && altKey === true && keyCode === kc('g'));
   },
   F3: function({ ctrlKey, shiftKey, altKey, metaKey, keyCode }){
     return (ctrlKey === false &&
@@ -65,6 +77,12 @@ module.exports = {
   },
   CTRL_HOME: function({ ctrlKey, keyCode }){
     return (ctrlKey === true && keyCode === kc('home'));
+  },
+  CTRL_META_LEFT: function({ ctrlKey, metaKey, keyCode }){
+    return (ctrlKey === true && metaKey === true && keyCode === kc('left'));
+  },
+   CTRL_META_RIGHT: function({ ctrlKey, metaKey, keyCode }){
+    return (ctrlKey === true && metaKey === true && keyCode === kc('right'));
   },
   CTRL_END: function({ ctrlKey, keyCode }){
     return (ctrlKey === true && keyCode === kc('end'));
@@ -151,5 +169,40 @@ module.exports = {
       altKey === false &&
       metaKey === false &&
       keyCode === kc('ESC'));
+  },
+  UP: function({ ctrlKey, shiftKey, altKey, metaKey, keyCode }){
+    return (ctrlKey === false &&
+      shiftKey === false &&
+      altKey === false &&
+      metaKey === false &&
+      keyCode === kc('UP'));
+  },
+  DOWN: function({ ctrlKey, shiftKey, altKey, metaKey, keyCode }){
+    return (ctrlKey === false &&
+      shiftKey === false &&
+      altKey === false &&
+      metaKey === false &&
+      keyCode === kc('DOWN'));
+  },
+  LEFT: function({ ctrlKey, shiftKey, altKey, metaKey, keyCode }){
+    return (ctrlKey === false &&
+      shiftKey === false &&
+      altKey === false &&
+      metaKey === false &&
+      keyCode === kc('LEFT'));
+  },
+  RIGHT: function({ ctrlKey, shiftKey, altKey, metaKey, keyCode }){
+    return (ctrlKey === false &&
+      shiftKey === false &&
+      altKey === false &&
+      metaKey === false &&
+      keyCode === kc('RIGHT'));
+  },
+  ENTER: function({ ctrlKey, shiftKey, altKey, metaKey, keyCode }){
+    return (ctrlKey === false &&
+      shiftKey === false &&
+      altKey === false &&
+      metaKey === false &&
+      keyCode === kc('ENTER'));
   }
 };

@@ -115,8 +115,10 @@ module.exports = {
   CTRL_P: function({ ctrlKey, metaKey, keyCode }){
     return ((ctrlKey === true || metaKey === true) && keyCode === kc('p'));
   },
-  CTRL_TAB: function({ ctrlKey, metaKey, keyCode }){
-    return ((ctrlKey === true || metaKey === true) && keyCode === kc('tab'));
+  CTRL_TAB: function({ ctrlKey, metaKey, shiftKey, keyCode }){
+    return ((ctrlKey === true || metaKey === true) &&
+      shiftKey === false &&
+      keyCode === kc('tab'));
   },
   CTRL_SHIFT_TAB: function({ ctrlKey, metaKey, shiftKey, keyCode }){
     return ((ctrlKey === true || metaKey === true) &&

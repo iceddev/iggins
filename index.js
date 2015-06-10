@@ -17,8 +17,8 @@ function iggins(app, opts, done) {
 
   /**
    * Registers a key combination and handler as an application keyboard shortcut.
-   * @param  {string} predicate - Has the form 'CTRL_L' or 'ALT_SHIFT_U'
-   * @param  {function} handler - The action to invoke when keypress is detected.
+   * @param  {string} predicate Has the form 'CTRL_L' or 'ALT_SHIFT_U'
+   * @param  {function} handler The action to invoke when keypress is detected.
    * @return {function}           A keypress remover function to be called by requestor on DOM unmount.
    */
   function keypress(predicate, handler) {

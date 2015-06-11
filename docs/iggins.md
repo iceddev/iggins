@@ -1,4 +1,4 @@
-# Documentation for iggins
+# Documentation to use iggins
 
 <!-- div class="toc-container" -->
 
@@ -6,13 +6,7 @@
 
 ## `iggins`
 * <a href="#iggins">`iggins`</a>
-
-<!-- /div -->
-
-<!-- div -->
-
-## `keypress`
-* <a href="#keypress">`keypress`</a>
+* <a href="#iggins-keypress">`iggins.keypress`</a>
 
 <!-- /div -->
 
@@ -27,7 +21,7 @@
 <!-- div -->
 
 ### <a id="iggins"></a>`iggins(app, opts, done)`
-<a href="#iggins">#</a> [&#x24C8;](https://github.com/iceddev/iggins/blob/master/src/index.js#L41 "View in source") [&#x24C9;][1]
+<a href="#iggins">#</a> [&#x24C8;](https://github.com/iceddev/iggins/blob/master/src/index.js#L42 "View in source") [&#x24C9;][1]
 
 A plugin for Irken applications that exposes keyboard shortcut functionality.
 
@@ -68,16 +62,10 @@ console.log(typeof app.keypress);
 
 <!-- /div -->
 
-<!-- /div -->
-
 <!-- div -->
 
-## `keypress`
-
-<!-- div -->
-
-### <a id="keypress"></a>`keypress(predicate, handler)`
-<a href="#keypress">#</a> [&#x24C8;](https://github.com/iceddev/iggins/blob/master/src/index.js#L63 "View in source") [&#x24C9;][1]
+### <a id="iggins-keypress"></a>`iggins.keypress(predicate, handler)`
+<a href="#iggins-keypress">#</a> [&#x24C8;](https://github.com/iceddev/iggins/blob/master/src/index.js#L65 "View in source") [&#x24C9;][1]
 
 Registers a key combination and handler as an application keyboard shortcut.
 

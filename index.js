@@ -6,6 +6,8 @@ var predicates = require('./predicates');
 
 function iggins(app, opts, done) {
 
+  var namespace = opts.namespace | 'keypress';
+
   var handlers = [];
 
   /**
@@ -44,7 +46,7 @@ function iggins(app, opts, done) {
 
   _.assign(keypress, predicates);
 
-  app.expose('keypress', keypress);
+  app.expose(namespace, keypress);
 
   if (typeof window !== 'undefined') {
     window.addEventListener('keydown', match);

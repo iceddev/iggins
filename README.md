@@ -38,11 +38,15 @@ console.log(typeof kp);
 #### Who uses the returned function?
 The returned function is particularly important when the newly registered `keyAction.handler' interacts with a DOM element that may at some future time cease to exist.  The returned function can be passed to the caller and invoked when the reference needs to be broken to allow for garbage collection.
 
-###API Reference
+### API Reference
+
+#### Options
+
+* `namespace` - select the namespace at registration that the plugin will have on the application. Default value is 'keypress'.
 
 #### Methods
 
 * `keypress(predicate, handler)` - Registers a key combination and handler as an application keyboard shortcut.
 
-#### Exposed Keypresses
+### Exposed Keypresses
 Iggins exposes some common key combinations (i.e., CTRL_S and CTRL_SHIFT_UP) on the object by default.  For a complete listing take a look at [predicates.js](/src/predicates.js).

@@ -25,7 +25,9 @@
   },
   "devDependencies": {
     "gulp": "^3.8.11",
-    "gulp-babel": "^5.1.0"
+    "gulp-babel": "^5.1.0",
+    "gulp-docdown": "^0.1.11",
+    "gulp-rename": "^1.2.2"
   },
   "keywords": [
     "irken",

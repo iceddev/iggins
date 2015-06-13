@@ -17,6 +17,7 @@
   ],
   "scripts": {
     "test": "zuul test/ --local --open",
+    "docs": "docdown src/index.js docs/blaine.md url=\"https://github.com/iceddev/iggins/blob/master/src/index.js\"",
     "prepublish": "gulp"
   },
   "dependencies": {
@@ -24,6 +25,7 @@
     "lodash": "^3.8.0"
   },
   "devDependencies": {
+    "docdown": "^0.2.0",
     "gulp": "^3.8.11",
     "gulp-babel": "^5.1.0"
   },

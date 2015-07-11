@@ -21,7 +21,7 @@ function iggins(app, opts, done){
 
   function match(evt){
     _.forEach(handlers, function(handlerObject){
-      if(handlerObject.predicate(evt)){
+      if(handlerObject && handlerObject.predicate(evt)){
         handlerObject.handler(evt);
       }
     });

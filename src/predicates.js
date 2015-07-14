@@ -114,6 +114,12 @@ module.exports = {
       shiftKey === false &&
       keyCode === kc('s'));
   },
+  CTRL_SHIFT_S: function({ altKey, ctrlKey, metaKey, shiftKey, keyCode}){
+    return ((ctrlKey === true || metaKey === true) &&
+      shiftKey === true &&
+      keyCode === kc('s') &&
+      altKey === false);
+  },
   CTRL_P: function({ ctrlKey, metaKey, keyCode }){
     return ((ctrlKey === true || metaKey === true) && keyCode === kc('p'));
   },

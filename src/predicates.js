@@ -154,37 +154,33 @@ module.exports = {
   },
   CTRL_END: function({ ctrlKey, shiftKey, altKey, metaKey, keyCode }){
     return (ctrlKey === true &&
+      metaKey === false &&
       shiftKey === false &&
       altKey === false &&
-      metaKey === false &&
       keyCode === kc('end'));
   },
   CTRL_UP: function({ ctrlKey, shiftKey, altKey, metaKey, keyCode }){
-    return (ctrlKey === true &&
+    return ((ctrlKey === true || metaKey === true) &&
       shiftKey === false &&
       altKey === false &&
-      metaKey === false &&
       keyCode === kc('up'));
   },
   CTRL_DOWN: function({ ctrlKey, shiftKey, altKey, metaKey, keyCode }){
-    return (ctrlKey === true &&
+    return ((ctrlKey === true || metaKey === true) &&
       shiftKey === false &&
       altKey === false &&
-      metaKey === false &&
       keyCode === kc('down'));
   },
   CTRL_MINUS: function({ ctrlKey, shiftKey, altKey, metaKey, keyCode }){
-    return (ctrlKey === true &&
+    return ((ctrlKey === true || metaKey === true) &&
       shiftKey === false &&
       altKey === false &&
-      metaKey === false &&
       keyCode === kc('-'));
   },
   CTRL_EQUALS: function({ ctrlKey, shiftKey, altKey, metaKey, keyCode }){
-    return (ctrlKey === true &&
+    return ((ctrlKey === true || metaKey === true) &&
       shiftKey === false &&
       altKey === false &&
-      metaKey === false &&
       keyCode === kc('='));
   },
   CTRL_O: function({ ctrlKey, shiftKey, altKey, metaKey, keyCode }){
@@ -193,7 +189,7 @@ module.exports = {
       shiftKey === false &&
       keyCode === kc('o'));
   },
-  BACSPACE: function({ ctrlKey, shiftKey, altKey, metaKey, keyCode }){
+  BACKSPACE: function({ ctrlKey, shiftKey, altKey, metaKey, keyCode }){
     return (ctrlKey === false &&
       shiftKey === false &&
       altKey === false &&

@@ -156,6 +156,12 @@ module.exports = {
   CTRL_M: function({ ctrlKey, metaKey, keyCode }){
     return ((ctrlKey === true || metaKey === true) && keyCode === kc('m'));
   },
+  CTRL_N: function({altKey, ctrlKey, metaKey, shiftKey, keyCode}){
+    return ((ctrlKey === true || metaKey === true) &&
+      altKey === false &&
+      shiftKey === false &&
+      keyCode === kc('n'));
+  },
   F8: function({ ctrlKey, shiftKey, altKey, metaKey, keyCode }){
     return (ctrlKey === false &&
       shiftKey === false &&

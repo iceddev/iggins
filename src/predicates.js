@@ -109,8 +109,10 @@ module.exports = {
       metaKey === false &&
       keyCode === kc('backspace'));
   },
-  CTRL_S: function({ ctrlKey, metaKey, keyCode }){
-    return ((ctrlKey === true || metaKey === true) && keyCode === kc('s'));
+  CTRL_S: function({ ctrlKey, metaKey, shiftKey, keyCode }){
+    return ((ctrlKey === true || metaKey === true) &&
+      shiftKey === false &&
+      keyCode === kc('s'));
   },
   CTRL_P: function({ ctrlKey, metaKey, keyCode }){
     return ((ctrlKey === true || metaKey === true) && keyCode === kc('p'));

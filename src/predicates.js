@@ -75,7 +75,7 @@ module.exports = {
       altKey === false &&
       ctrlKey === false &&
       metaKey === false &&
-      keyCode === kc('tab');
+      keyCode === kc('tab'));
   },
   ALT_SHIFT_TAB: function({ ctrlKey, shiftKey, altKey, metaKey, keyCode }){
     return (altKey === true &&

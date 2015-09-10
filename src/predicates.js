@@ -103,6 +103,13 @@ module.exports = {
       shiftKey === false &&
       keyCode === kc('g'));
   },
+  F1: function({ ctrlKey, shiftKey, altKey, metaKey, keyCode }){
+    return (ctrlKey === false &&
+      shiftKey === false &&
+      altKey === false &&
+      metaKey === false &&
+      keyCode === kc('f1'));
+  },
   F3: function({ ctrlKey, shiftKey, altKey, metaKey, keyCode }){
     return (ctrlKey === false &&
       shiftKey === false &&
